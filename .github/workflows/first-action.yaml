@@ -24,9 +24,6 @@ jobs:
     steps:
       - name: echo string
         run: Write-Output "Windows String"
-      - name: Error Steps
-        run: doesnotexits
-
   test:
     runs-on: ubuntu-latest
     steps:
