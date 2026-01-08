@@ -11,12 +11,14 @@ jobs:
         run: |
           node -v
           npm -v
- parallel-job-macos:
+
+  parallel-job-macos:
     runs-on: macos-latest
     steps:
       - name: View SW Version
         run: SW_vers
- dependent-job:
+
+  dependent-job:
     runs-on: windows-latest
     needs: run-shell-commands
     steps:
