@@ -1,0 +1,18 @@
+name: Output information
+on: [workflow_dispatch]
+jobs:
+  output-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output GitHub Context
+        run: echo "${{ toJson(github) }}"
+      - name: Output Runner Context
+        run: echo "${{ toJson(runner) }}"
+      - name: Output Job Context
+        run: echo "${{ toJson(job) }}"
+      - name: Output Steps Context
+        run: echo "${{ toJson(steps) }}"
+      - name: Output Matrix Context
+        run: echo "${{ toJson(matrix) }}"
+      - name: Output Env Context
+        run: echo "${{ toJson(env) }}"
