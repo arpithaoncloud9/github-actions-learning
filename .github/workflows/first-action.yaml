@@ -22,7 +22,7 @@ jobs:
     runs-on: windows-latest
     needs: run-shell-commands
     steps:
-      - name: echo a string
+      - name: echo string
         run: Write-Output "Windows String"
       - name: Error Steps
         run: doesnotexits 
