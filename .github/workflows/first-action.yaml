@@ -29,9 +29,11 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
       - name: Run tests
         run: npm test
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Deploy Application
+        run: echo "Deploying Application..."
