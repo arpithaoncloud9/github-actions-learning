@@ -28,8 +28,6 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm ci
       - name: Run tests
         run: echo "testing done"
   build:
@@ -38,8 +36,6 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm ci
       - name: Build Application
         run: npm run build
       - name: Upload artifacts
