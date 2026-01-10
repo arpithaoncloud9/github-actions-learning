@@ -60,17 +60,22 @@ It allow you to react to some **events** that can happen in the repository or ou
 - Because it’s cloud‑hosted and tightly connected to the repository, GitHub Actions helps teams deliver faster, maintain cleaner pipelines, and streamline the entire DevOps process.
 
 ### Key Elements:
+
 #### Workflow : 
 Workflows are configurable automated processes that you can set up in your repository in order to perform a specific task.
 Eg: Deploying an application, Testing your code, Publishing a package etc..
 Workflows are attached to repository and it  can have 1 or more jobs. Workflows are triggered upon events.
+
 #### Job :
 Job has one or more steps. Each Job can either run independently or parallel because each job will run on its own **Runner machine**.
+
 #### Step :
 Step can simply be a cmd, batch script file, action , docker container. You can use custom or third party actions. Steps are executed in order.
+
 #### Action : 
 A custom or third party application that performs a typically complex or repeated tasks.
 Eg: Fetching code from repository and downloading onto runner machine
+
 #### Runner machine :
   Is a machine that has runner software installed. This s/w is connected to GitHub and it will accept the jobs and execute them.
   Each runner can run a single job at a time.
@@ -78,6 +83,7 @@ Eg: Fetching code from repository and downloading onto runner machine
     - **Github hosted runners** (linux, windows, MacOS with tools installed by Github. no control)
     - **Self hosted runners** (Full control/Custom) 
     - **Larger runners** (By Github with more CPU and RAM)
+
 #### Events :
 Triggers workflow to run. 
 1. Repository Events: pull, push, Issue.
@@ -129,4 +135,5 @@ jobs:
     steps:
       - id: get_version
         run: echo "version=1.0.3" >> $GITHUB_OUTPUT
+
 
