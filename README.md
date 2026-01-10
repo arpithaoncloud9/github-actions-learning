@@ -1,4 +1,5 @@
 
+### **Git Basics**
 #### Git :
 Git is a distributed version control system that allows developers to track changes, work on code in parallel using branches, and merge updates efficiently. It keeps a complete history of the project and enables collaboration without overwriting each other’s work.
 
@@ -83,3 +84,49 @@ Triggers workflow to run. 
 2. External Events: Sending a POST request to REST API.
 3. Scheduled Times: Start everyday at 6am.
 4. Manually: Push a button.
+
+#### Activity Types : 
+Some events have **sub‑events**, called activity types which describe what kind of action happened.
+   Eg: `pull_request` has many activity types.
+```yaml
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+```
+#### Event Filters : 
+Event filters let you **control which specific events trigger your workflow**. 
+   Eg: the push  event can be filtered by:
+```yaml 
+on:
+  push:
+    branches:
+      - main
+      - dev
+```
+#### Artifacts :
+Artifacts are **files or folders generated during a workflow** that you want to save, download.
+   Eg: How to upload an artifact
+```yaml
+- name: Upload build output
+  uses: actions/upload-artifact@v4
+  with:
+    name: build-files
+    path: build/
+```
+#### Job Outputs : 
+Allow **one job to pass small pieces of data** (like strings, IDs, versions, paths) to another job.
+   Eg: Setting an output in a job
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.get_version.outputs.version }}
+    steps:
+      - id: get_version
+        run: echo "version=1.0.3" >> $GITHUB_OUTPUT
+
